@@ -1,0 +1,9 @@
+{
+    "name": "yici-mr/yframe",
+    "autoload": {
+        "psr-4": {
+            "yframe\\": "src"
+        }
+    },
+    "require": {}
+}
