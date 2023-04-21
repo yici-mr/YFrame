@@ -1,5 +1,5 @@
 {
-    "name": "yici-mr/yframe",
+    "name": "yicitool/yframe",
     "autoload": {
         "psr-4": {
             "yframe\\": "src",
