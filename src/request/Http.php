@@ -10,8 +10,6 @@ class Http
        $app = $method->App();
        $Controller =  $method->Controller();
        $Action = $method->Action();
-       //下面进行路由
-       print_r($method);die;
     }
 
 }

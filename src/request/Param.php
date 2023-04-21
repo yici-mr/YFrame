@@ -3,9 +3,10 @@
 namespace yframe\request;
 
 
-class Param
+class Param extends Route
 {
     protected static $Method;
+
 
     /**
      * 判断是否为GET请求
@@ -49,7 +50,7 @@ class Param
      * 获取当前应用
      * @return mixed
      */
-    public static function App(){
+    public  function App(){
         $app = $_SERVER['REQUEST_URI'];
         $app = explode('/',$app);
         return $app[1];
@@ -59,7 +60,7 @@ class Param
      * 获取当前控制器
      * @return mixed
      */
-    public static function Controller(){
+    public  function Controller(){
         $app = $_SERVER['REQUEST_URI'];
         $app = explode('/',$app);
         return $app[2];
@@ -69,7 +70,7 @@ class Param
      * 获取当前方法
      * @return mixed
      */
-    public static function Action()
+    public  function Action()
     {
         $app = $_SERVER['REQUEST_URI'];
         $app = explode('/', $app);
@@ -84,6 +85,7 @@ class Param
     {
         $param = $_SERVER['REQUEST_URI'];
         $param = explode('/', $param);
+
         $params = array();
         if (array_key_exists(4,$param))
         {

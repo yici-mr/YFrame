@@ -2,7 +2,8 @@
     "name": "yici-mr/yframe",
     "autoload": {
         "psr-4": {
-            "yframe\\": "src"
+            "yframe\\": "src",
+            "app\\": "app"
         }
     },
     "require": {}
