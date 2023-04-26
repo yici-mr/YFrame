@@ -16,23 +16,23 @@ class Route
             if (array_key_exists($_SERVER['REQUEST_URI'], self::$route)) {
                 //默认路由
                 $_SERVER['REQUEST_URI'] = self::$route[$_SERVER['REQUEST_URI']];
-            }else{
-                $app = $this->App();
-
-                if (!file_exists(__DIR__.'/../../app/'.$app)) {
-                    throw new \Exception('应用不存在');
-                }
-                $Controller =  $this->Controller();
-                if (!file_exists(__DIR__.'/../../app/'.$app.'/controller/'.$Controller.'.php')){
-                    throw new \Exception('控制器不存在');
-                }
-
             }
+//            else{
+//                $app = $this->App();
+//
+//                if (!file_exists(__DIR__.'/../../app/'.$app)) {
+//                    throw new \Exception('应用不存在');
+//                }
+//                $Controller =  $this->Controller();
+//                if (!file_exists(__DIR__.'/../../app/'.$app.'/controller/'.$Controller.'.php')){
+//                    throw new \Exception('控制器不存在');
+//                }
+//
+//            }
             $this->visit();
         }
         catch (\Exception $e){
-            echo $e->getMessage();
-            exit;
+            return $e->getMessage();
         }
     }
     protected function visit()
@@ -40,6 +40,7 @@ class Route
         try {
             $app = $this->App();
             $Controller =  $this->Controller();
+            $Controller = ucfirst($Controller);
             $Action = $this->Action();
             $param = $this->Data();
             $class = 'app\\'.$app.'\\controller\\'.$Controller;
@@ -48,10 +49,8 @@ class Route
             $class->$Action($param);
         }
         catch (\Throwable $e){
-            echo $e->getMessage();
-            exit;
+            return $e->getMessage();
         }
-
 
     }
 

@@ -17,13 +17,13 @@ class View
             if (file_exists($file)) {
                 $content = file_get_contents($file);
                 $content = self::replace($content, $data);
-                echo $content;exit;
+                echo $content;exit();
             } else {
                 throw new \Exception('模板不存在');
             }
         }
         catch (\Exception $e){
-            echo $e->getMessage();exit;
+            return $e->getMessage();
         }
 
     }
